@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 17:53:47 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/21 14:07:10 by mcha             ###   ########.fr       */
+/*   Created: 2022/06/21 15:31:09 by mcha              #+#    #+#             */
+/*   Updated: 2022/06/21 20:43:44 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
-#include <iostream>
 
 class PhoneBook {
   private:
-    unsigned int _idx;
+    int _idx;
     Contact _phoneBook[8];
 
   public:
     PhoneBook();
-    unsigned int getNowIdx(void) const;
-    void setIdx(void);
-    Contact getPhoneBookComponent(unsigned int idx) const;
-    void addContact(Contact paramContact);
+    int getNowIndex(void);
+    void increaseIndex(void);
+    Contact *getAllContact(void);
+    Contact getSpecContact(int paramIdx);
+    int addNewContact(Contact paramContact);
 };
 
 #endif
