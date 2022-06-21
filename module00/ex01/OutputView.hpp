@@ -6,20 +6,24 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 20:19:49 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/20 20:27:19 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:36:10 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VIEW_HPP
 #define VIEW_HPP
 
+#include "Contact.hpp"
+#include <iomanip>
 #include <iostream>
 #include <string>
 
-class View {
+class OutputView {
   public:
-    View();
-    void isNotCommandType(std::string paramCommand);
+    void showColumn(void);
+    void showContact(Contact paramContact);
+    void showEmptyPhoneBook(void);
+    void showCannotFoundContact(void);
 };
 
 #endif

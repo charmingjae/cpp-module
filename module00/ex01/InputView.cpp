@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 20:29:52 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/20 22:39:27 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/21 13:59:03 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ int InputView::getContactArgument(std::string (&arr)[5]) {
         if (!std::getline(std::cin, input)) {
             std::cout << "EOF" << std::endl;
             return (0);
-        } else if (input.length() != 0) {
+        }
+        if (input.length() != 0) {
             arr[i] = input;
-        } else if (input.length() == 0) {
+        }
+        if (input.length() == 0) {
             std::cout << "Cannot input empty line. Try again :)" << std::endl;
             i--;
             continue;
@@ -49,4 +51,33 @@ void InputView::getContactInputType(int paramType) {
         std::cout << "Phone Number : ";
     else if (paramType == 4)
         std::cout << "Darkest secret : ";
+}
+
+unsigned int InputView::getSearchIndex(void) {
+    std::string ret;
+    unsigned int pass = 0;
+
+    while (42) {
+        std::cout << " >> ";
+        if (!std::getline(std::cin, ret)) {
+            return (10);
+        }
+        try {
+            pass = stoi(ret);
+        } catch (std::exception &e) {
+            std::cout << e.what() << " exception occured. try again"
+                      << std::endl;
+            continue;
+        }
+        if (!isValidArrange(pass)) {
+            std::cout << "Please enter valid index" << std::endl;
+        } else {
+            break;
+        }
+    }
+    return (pass);
+}
+
+int InputView::isValidArrange(int paramInput) {
+    return (paramInput >= 0 && paramInput <= 8);
 }

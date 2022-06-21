@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:16:04 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/20 22:21:29 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:30:29 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class Contact {
     std::string getNickName(void);
     std::string getPhoneNumber(void);
     std::string getDarkest(void);
+    std::string getLongerThanColumn(std::string param);
 };
 
 #endif

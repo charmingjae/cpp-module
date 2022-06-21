@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 17:53:47 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/20 22:56:16 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/21 14:07:10 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ class PhoneBook {
     unsigned int getNowIdx(void) const;
     void setIdx(void);
     Contact getPhoneBookComponent(unsigned int idx) const;
-    int addContact(Contact paramContact);
-    void getContact(unsigned int paramIdx);
+    void addContact(Contact paramContact);
 };
 
 #endif
