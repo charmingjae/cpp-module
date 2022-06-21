@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:41:03 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/21 20:40:24 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/21 21:29:54 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,48 @@ void OutputView::showAllContacts(Contact *paramPhoneBook) {
     for (int i = 0; i < 8; i++) {
         if (!paramPhoneBook[i].getFirstName().empty()) {
             std::cout << " | " << std::setw(10) << i << " | " << std::setw(10)
-                      << paramPhoneBook[i].getFirstName() << " | "
-                      << std::setw(10) << paramPhoneBook[i].getLastName()
+                      << manufactLongString(paramPhoneBook[i].getFirstName())
                       << " | " << std::setw(10)
-                      << paramPhoneBook[i].getNickName() << " | " << std::endl;
+                      << manufactLongString(paramPhoneBook[i].getLastName())
+                      << " | " << std::setw(10)
+                      << manufactLongString(paramPhoneBook[i].getNickName())
+                      << " | " << std::endl;
         }
     }
 }
 
 void OutputView::showSpecContact(Contact paramContact, int paramIndex) {
-    showPhoneBookAllColumn();
-    std::cout << " | " << std::setw(10) << paramIndex << " | " << std::setw(10)
-              << paramContact.getFirstName() << " | " << std::setw(10)
-              << paramContact.getLastName() << " | " << std::setw(10)
-              << paramContact.getNickName() << " | " << std::setw(10)
-              << paramContact.getPhoneNumber() << " | " << std::setw(10)
-              << paramContact.getDarkestSecret() << " | " << std::endl;
+    for (int i = 0; i < 6; i++) {
+        showSpecContactComponents(paramContact, i, paramIndex);
+    }
+}
+
+void OutputView::showSpecContactComponents(Contact paramContact, int paramIndex,
+                                           int realIndex) {
+    if (paramIndex == 0) {
+        std::cout << " | " << std::setw(10) << "INDEX"
+                  << " | " << realIndex << std::endl;
+    }
+    if (paramIndex == 1) {
+        std::cout << " | " << std::setw(10) << "FIRST NAME"
+                  << " | " << paramContact.getFirstName() << std::endl;
+    }
+    if (paramIndex == 2) {
+        std::cout << " | " << std::setw(10) << "LAST NAME"
+                  << " | " << paramContact.getLastName() << std::endl;
+    }
+    if (paramIndex == 3) {
+        std::cout << " | " << std::setw(10) << "NICK NAME"
+                  << " | " << paramContact.getNickName() << std::endl;
+    }
+    if (paramIndex == 4) {
+        std::cout << " | " << std::setw(10) << "PHONE NBR."
+                  << " | " << paramContact.getPhoneNumber() << std::endl;
+    }
+    if (paramIndex == 5) {
+        std::cout << " | " << std::setw(10) << "DARK. SEC."
+                  << " | " << paramContact.getDarkestSecret() << std::endl;
+    }
 }
 
 void OutputView::showSpecContactEmpty(int paramIndex) {
@@ -108,4 +134,12 @@ void OutputView::showContactComponentNotValid(void) {
 void OutputView::showGoodBye(void) {
     std::cout << std::endl;
     std::cout << "Good Bye" << std::endl;
+}
+
+std::string OutputView::manufactLongString(std::string paramString) {
+    if (paramString.length() > 10) {
+        paramString = paramString.substr(0, 10);
+        paramString = paramString.replace(9, 1, ".");
+    }
+    return (paramString);
 }

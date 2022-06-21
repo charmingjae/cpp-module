@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 15:40:09 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/21 20:43:33 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/21 21:25:16 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ class OutputView {
     void showContactComponentNotValid(void);
     void showSpecContactEmpty(int paramIndex);
     void showAllContacts(Contact *paramPhoneBook);
+    std::string manufactLongString(std::string paramString);
     void showSpecContact(Contact paramContact, int paramIndex);
+    void showSpecContactComponents(Contact paramContact, int paramIndex,
+                                   int realIndex);
 };
 
 #endif

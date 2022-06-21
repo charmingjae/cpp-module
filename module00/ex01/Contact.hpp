@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:16:21 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/21 20:44:32 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/21 21:25:10 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ class Contact {
     std::string getNickName(void);
     std::string getPhoneNumber(void);
     std::string getDarkestSecret(void);
-    std::string manufactLongString(std::string paramString);
 };
 
 #endif
