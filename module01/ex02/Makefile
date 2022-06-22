@@ -5,21 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/21 22:26:29 by mcha              #+#    #+#              #
-#    Updated: 2022/06/22 20:33:46 by mcha             ###   ########.fr        #
+#    Created: 2022/06/22 21:45:22 by mcha              #+#    #+#              #
+#    Updated: 2022/06/22 21:55:05 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX					= c++
-CXXFLAGS			= -std=c++98 -Wall -Werror -Wextra
-NAME				= bank
+ifdef DEBUG
+	CXXFLAGS		= -std=c++98 -g
+else 
+	CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
+endif
+NAME				= brain
 
 RM					= rm -rf
 
-HEAD_FILE			=	Account.hpp
-
-SRCS_FILE			=	Account.cpp \
-						test.cpp \
+SRCS_FILE			=	main.cpp \
 
 OBJ					= $(SRCS_FILE:%.cpp=%.o)
 
@@ -27,7 +28,7 @@ OBJ					= $(SRCS_FILE:%.cpp=%.o)
 					@echo "[+] Compile $<"
 					@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-$(NAME)				: $(OBJ) $(HEAD_FILE)
+$(NAME)				: $(OBJ)
 					@echo "[+] Create $(NAME) with linking"
 					@$(CXX) $(CXXFLAGS) -o $@ $(OBJ)
 
@@ -45,4 +46,8 @@ re					:
 					make fclean
 					make all
 
-.PHONY 				: all clean fclean re
+debug				:
+					@make DEBUG=1
+					@echo "[-] DEBUG PROCESS"
+
+.PHONY 				: all clean fclean re debug
