@@ -6,7 +6,7 @@
 #    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 21:45:22 by mcha              #+#    #+#              #
-#    Updated: 2022/06/23 13:34:27 by mcha             ###   ########.fr        #
+#    Updated: 2022/06/23 13:36:01 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,18 @@ ifdef DEBUG
 else 
 	CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
 endif
-NAME				= brain
+NAME				= human
 
 RM					= rm -rf
 
+HEAD_FILE			= 	HumanA.hpp \
+						HumanB.hpp \
+						Weapon.hpp \
+
 SRCS_FILE			=	main.cpp \
+						HumanA.cpp \
+						HumanB.cpp \
+						Weapon.cpp \
 
 OBJ					= $(SRCS_FILE:%.cpp=%.o)
 
@@ -28,7 +35,7 @@ OBJ					= $(SRCS_FILE:%.cpp=%.o)
 					@echo "[+] Compile $<"
 					@$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-$(NAME)				: $(OBJ)
+$(NAME)				: $(OBJ) $(HEAD_FILE)
 					@echo "[+] Create $(NAME) with linking"
 					@$(CXX) $(CXXFLAGS) -o $@ $(OBJ)
 
