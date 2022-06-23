@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   AboutFile.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 21:24:05 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/23 21:49:43 by mcha             ###   ########.fr       */
+/*   Created: 2022/06/23 19:40:54 by mcha              #+#    #+#             */
+/*   Updated: 2022/06/23 19:49:51 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ABOUTFILE_HPP
+#define ABOUTFILE_HPP
 
-int main(void) {
-    int n = 2;
-    if (n >= 0) {
-        Zombie *zombie = zombieHorde(n, "mcha");
+#include <string>
 
-        for (int i = 0; i < n; i++) {
-            std::cout << zombie[i].getName() << std::endl;
-        }
-    }
-    return (1);
-}
+class AboutFile {
+  private:
+    std::string _result;
+
+  public:
+    std::string getResult(void);
+    void addString(std::string paramStr);
+};
+
+#endif

@@ -5,21 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 21:24:05 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/23 21:49:43 by mcha             ###   ########.fr       */
+/*   Created: 2022/06/23 19:09:38 by mcha              #+#    #+#             */
+/*   Updated: 2022/06/23 19:28:56 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Controller.hpp"
 
-int main(void) {
-    int n = 2;
-    if (n >= 0) {
-        Zombie *zombie = zombieHorde(n, "mcha");
-
-        for (int i = 0; i < n; i++) {
-            std::cout << zombie[i].getName() << std::endl;
-        }
+int main(int ac, char **av) {
+    if (ac != 4) {
+        std::cout << "[Error] parameter count is not 4" << std::endl;
+        return (0);
     }
+    Controller controller;
+    if (controller.proc(av[1], av[2], av[3]))
+        return (0);
     return (1);
 }

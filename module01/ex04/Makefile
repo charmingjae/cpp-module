@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/21 22:26:29 by mcha              #+#    #+#              #
-#    Updated: 2022/06/23 19:08:54 by mcha             ###   ########.fr        #
+#    Created: 2022/06/22 21:45:22 by mcha              #+#    #+#              #
+#    Updated: 2022/06/23 19:53:34 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,16 @@ ifdef DEBUG
 else 
 	CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
 endif
-NAME				= zombie
+NAME				= sed
 
 RM					= rm -rf
 
-HEAD_FILE			=	Zombie.hpp
+HEAD_FILE			= 	Controller.hpp \
+						AboutFile.hpp \
 
 SRCS_FILE			=	main.cpp \
-						newZombie.cpp \
-						randomChump.cpp \
-						Zombie.cpp \
+						Controller.cpp \
+						AboutFile.cpp \
 
 OBJ					= $(SRCS_FILE:%.cpp=%.o)
 
