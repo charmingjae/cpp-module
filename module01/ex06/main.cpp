@@ -5,30 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 13:36:07 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/24 14:08:59 by mcha             ###   ########.fr       */
+/*   Created: 2022/06/24 13:57:56 by mcha              #+#    #+#             */
+/*   Updated: 2022/06/24 15:07:14 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include "Weapon.hpp"
+#include "Harl.hpp"
 
-int main() {
-    {
-        Weapon club = Weapon("crude spiked club");
-        HumanA bob("Bob", club);
-        bob.attack();
-        club.setType("some other type of club");
-        bob.attack();
+int main(int ac, char **av) {
+    if (ac != 2) {
+        std::cout << "Error.. please enter one level" << std::endl;
+        return (0);
     }
-    {
-        Weapon club = Weapon("crude spiked club");
-        HumanB jim("Jim");
-        jim.setWeapon(club); // option
-        jim.attack();
-        club.setType("some other type of club");
-        jim.attack();
-    }
-    return 0;
+    Harl harl;
+
+    harl.complain(av[1]);
+    return (1);
 }

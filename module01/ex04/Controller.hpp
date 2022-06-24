@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:19:22 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/23 20:25:20 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/24 13:41:06 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Controller {
     int isStringNull(std::string paramStr);
     int isFileOpenedSuccessfully(std::ifstream &paramStream);
     void readAndConnect(std::ifstream &paramStream, AboutFile &paramAboutFile);
+    void replaceStr(std::string &paramOrigin, std::string paramTarget,
+                    std::string paramReplace);
 };
 
 #endif

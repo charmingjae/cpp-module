@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 21:24:05 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/24 17:51:46 by mcha             ###   ########.fr       */
+/*   Created: 2022/06/24 13:57:07 by mcha              #+#    #+#             */
+/*   Updated: 2022/06/24 13:59:06 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main(void) {
-    int n = 2;
-    if (n >= 0) {
-        Zombie *zombie = zombieHorde(n, "mcha");
+#include <iostream>
+#include <string>
 
-        for (int i = 0; i < n; i++) {
-            std::cout << zombie[i].getName() << std::endl;
-        }
-        delete[] zombie;
-    }
-    return (1);
-}
+class Harl {
+  private:
+    void debug(void);
+    void info(void);
+    void warning(void);
+    void error(void);
+
+  public:
+    void complain(std::string level);
+};
+
+#endif
