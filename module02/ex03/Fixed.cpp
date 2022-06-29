@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:18:00 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/27 21:17:59 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/29 20:53:33 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,30 @@ bool Fixed::operator!=(const Fixed &fixed) const {
 }
 
 Fixed Fixed::operator+(const Fixed &fixed) const {
-    return this->getRawBits() + fixed.getRawBits();
+    Fixed ret;
+    ret.setRawBits(this->getRawBits() + fixed.getRawBits());
+    return ret;
 }
 
 Fixed Fixed::operator-(const Fixed &fixed) const {
-    return this->getRawBits() - fixed.getRawBits();
+    Fixed ret;
+    ret.setRawBits(this->getRawBits() - fixed.getRawBits());
+    return ret;
 }
 
 Fixed Fixed::operator*(const Fixed &fixed) const {
-    return this->toFloat() * fixed.toFloat();
+    Fixed ret;
+    ret.setRawBits(this->getRawBits() * fixed.getRawBits() / (1 << _frac));
+    return ret;
 }
 
 // Consider divide by zero
 Fixed Fixed::operator/(const Fixed &fixed) const {
-    return this->getRawBits() / fixed.getRawBits();
+    if (fixed.getRawBits() == 0)
+        std::cout << "Divide by zero. Exception occured" << std::endl;
+    Fixed ret;
+    ret.setRawBits(this->getRawBits() / fixed.getRawBits() * (1 << _frac));
+    return ret;
 }
 
 Fixed &Fixed::operator++() {

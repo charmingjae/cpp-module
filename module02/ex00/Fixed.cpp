@@ -6,13 +6,11 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:18:00 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/27 14:48:49 by mcha             ###   ########.fr       */
+/*   Updated: 2022/06/29 20:59:12 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-const int Fixed::_frac = 8;
 
 Fixed::Fixed() {
     std::cout << "Default constructor called" << std::endl;
