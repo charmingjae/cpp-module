@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:22:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/01 19:23:34 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/02 01:15:58 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ class ClapTrap {
     ClapTrap(std::string paramName);
     ClapTrap(const ClapTrap &clapTrap);
     virtual ~ClapTrap();
+    // ~ClapTrap();
 
     // operator
     ClapTrap &operator=(const ClapTrap &clapTrap);
 
     // function
-    void attack(const std::string &target);
+    virtual void attack(const std::string &target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
 

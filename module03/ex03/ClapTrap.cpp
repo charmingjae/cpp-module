@@ -6,13 +6,12 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:29:14 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/01 19:23:27 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/02 02:01:16 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-// Constructor, Destructor
 ClapTrap::ClapTrap()
     : _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
     std::cout << "Default constructor is executed" << std::endl;
@@ -43,9 +42,10 @@ ClapTrap::ClapTrap(const ClapTrap &clapTrap) {
 ClapTrap::~ClapTrap() {
     if (this->getName().empty()) {
         std::cout << "ClapTrap unknown is destructed" << std::endl;
+    } else {
+        std::cout << "ClapTrap " << this->getName() << " is destructed"
+                  << std::endl;
     }
-    std::cout << "ClapTrap " << this->getName() << " is destructed"
-              << std::endl;
 }
 
 // operator

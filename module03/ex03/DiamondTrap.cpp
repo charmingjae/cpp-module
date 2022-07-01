@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:21:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/01 21:41:39 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/02 02:15:06 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap() {
     std::cout << "DiamondTrap default constructor is executed." << std::endl;
     // Bind Value
     this->_name = "";
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 30;
+    this->_hitPoints = FragTrap().getHitPoints();
+    this->_energyPoints = ScavTrap().getEnergyPoints();
+    this->_attackDamage = FragTrap().getAttackDamage();
 }
 
 DiamondTrap::DiamondTrap(std::string paramName)
     : ClapTrap(paramName + "_clap_name"), FragTrap(paramName),
       ScavTrap(paramName) {
-    std::cout << "DiamondTrap with name is created" << std::endl;
     this->_name = paramName;
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 30;
+    this->_hitPoints = FragTrap().getHitPoints();
+    this->_energyPoints = ScavTrap().getEnergyPoints();
+    this->_attackDamage = FragTrap().getAttackDamage();
+    std::cout << "DiamondTrap " << this->_name << " is created " << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &diamondTrap)
@@ -54,5 +54,6 @@ void DiamondTrap::whoAmI() {
 }
 
 DiamondTrap::~DiamondTrap() {
-    std::cout << "DiamondTrap destructor is executed." << std::endl;
+    std::cout << "DiamondTrap " << this->getName() << " is destructed"
+              << std::endl;
 }

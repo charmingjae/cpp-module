@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:31:22 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/01 20:38:59 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/02 02:09:15 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ FragTrap::FragTrap() : ClapTrap() {
 }
 
 FragTrap::FragTrap(std::string paramName) : ClapTrap(paramName) {
-    std::cout << "FragTrap : " << paramName << " is created" << std::endl;
+    std::cout << "FragTrap " << paramName << " is created" << std::endl;
     this->_name = paramName;
     this->_hitPoints = 100;
     this->_energyPoints = 100;

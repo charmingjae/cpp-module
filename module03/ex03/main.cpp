@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:40:21 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/01 21:22:39 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/02 02:31:54 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,51 +15,63 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-void showClapTrapStatus(ClapTrap &obj) {
-    std::cout << "\n[CLAP] " << obj.getName() << std::endl;
-    std::cout << "HP	: " << obj.getHitPoints() << std::endl;
-    std::cout << "ENERG	: " << obj.getEnergyPoints() << std::endl;
-    std::cout << "ADM	: " << obj.getAttackDamage() << std::endl;
-    std::cout << "\n";
+void showStatus_1(ClapTrap &obj) {
+    std::cout << "\n	[Clap] " << obj.getName()
+              << "	HP :	" << obj.getHitPoints()
+              << "	ENG :	" << obj.getEnergyPoints()
+              << "	ATTK :	" << obj.getAttackDamage() << std::endl;
+}
+
+void showStatus_2(ScavTrap &obj) {
+    std::cout << "	[Scav] " << obj.getName()
+              << "	HP :	" << obj.getHitPoints()
+              << "	ENG :	" << obj.getEnergyPoints()
+              << "	ATTK :	" << obj.getAttackDamage() << "\n"
+              << std::endl;
+}
+
+void showStatus_3(FragTrap &obj) {
+    std::cout << "	[Frag] " << obj.getName()
+              << "	HP :	" << obj.getHitPoints()
+              << "	ENG :	" << obj.getEnergyPoints()
+              << "	ATTK :	" << obj.getAttackDamage() << "\n"
+              << std::endl;
+}
+
+void showStatus_4(DiamondTrap &obj) {
+    std::cout << "	[Dia] " << obj.getName()
+              << "	HP :	" << obj.getHitPoints()
+              << "	ENG :	" << obj.getEnergyPoints()
+              << "	ATTK :	" << obj.getAttackDamage() << "\n"
+              << std::endl;
 }
 
 void test(void) {
-    DiamondTrap *diamond = new DiamondTrap("DIAMOND");
-    diamond->whoAmI();
-    std::cout << "|---------------------------------------------------|"
-              << std::endl;
-    std::cout << "| NAME	: " << diamond->getName() << std::endl;
-    std::cout << "| HP	: " << diamond->getHitPoints() << std::endl;
-    std::cout << "| ENEG	: " << diamond->getEnergyPoints() << std::endl;
-    std::cout << "| ATTK	: " << diamond->getAttackDamage() << std::endl;
-    std::cout << "|---------------------------------------------------|"
-              << std::endl;
+    std::cout << "\n|---------------- Scene 02 ----------------|" << std::endl;
+    {
+        DiamondTrap *dia = new DiamondTrap("dia");
+        ClapTrap *mcha = new ClapTrap("mcha");
+        ClapTrap *scav = new ScavTrap("scav");
 
-    // attack
-    diamond->attack("my self");
-    diamond->takeDamage(diamond->getAttackDamage());
+        dia->whoAmI();
 
-    std::cout << "|---------------------------------------------------|"
-              << std::endl;
-    std::cout << "| NAME	: " << diamond->getName() << std::endl;
-    std::cout << "| HP	: " << diamond->getHitPoints() << std::endl;
-    std::cout << "| ENEG	: " << diamond->getEnergyPoints() << std::endl;
-    std::cout << "| ATTK	: " << diamond->getAttackDamage() << std::endl;
-    std::cout << "|---------------------------------------------------|"
-              << std::endl;
+        showStatus_1(*mcha);
+        showStatus_1(*scav);
+        showStatus_4(*dia);
 
-    // attack
-    diamond->beRepaired(20);
+        dia->attack("mcha");
+        mcha->takeDamage(dia->getAttackDamage());
+        dia->attack("scav");
+        scav->takeDamage(dia->getAttackDamage());
 
-    std::cout << "|---------------------------------------------------|"
-              << std::endl;
-    std::cout << "| NAME	: " << diamond->getName() << std::endl;
-    std::cout << "| HP	: " << diamond->getHitPoints() << std::endl;
-    std::cout << "| ENEG	: " << diamond->getEnergyPoints() << std::endl;
-    std::cout << "| ATTK	: " << diamond->getAttackDamage() << std::endl;
-    std::cout << "|---------------------------------------------------|"
-              << std::endl;
-    delete diamond;
+        showStatus_1(*mcha);
+        showStatus_1(*scav);
+        showStatus_4(*dia);
+
+        delete dia;
+        delete mcha;
+        delete scav;
+    }
 }
 
 int main(void) {
