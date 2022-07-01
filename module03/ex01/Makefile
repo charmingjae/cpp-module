@@ -6,7 +6,7 @@
 #    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 21:45:22 by mcha              #+#    #+#              #
-#    Updated: 2022/06/29 21:15:55 by mcha             ###   ########.fr        #
+#    Updated: 2022/07/01 16:13:54 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,16 @@ ifdef DEBUG
 else 
 	CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
 endif
-NAME				= ex03
+NAME				= ex01
 
 RM					= rm -rf
 
-HEAD_FILE			= 	Fixed.hpp \
-						Point.hpp \
+HEAD_FILE			= 	ClapTrap.hpp \
+						ScavTrap.hpp \
 
 SRCS_FILE			=	main.cpp \
-						Fixed.cpp \
-						Point.cpp \
-						bsp.cpp \
+						ClapTrap.cpp \
+						ScavTrap.cpp \
 
 OBJ					= $(SRCS_FILE:%.cpp=%.o)
 

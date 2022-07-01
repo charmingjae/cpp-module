@@ -6,7 +6,7 @@
 #    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 21:45:22 by mcha              #+#    #+#              #
-#    Updated: 2022/06/29 21:15:55 by mcha             ###   ########.fr        #
+#    Updated: 2022/07/01 20:45:59 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,25 @@ ifdef DEBUG
 else 
 	CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
 endif
+ifdef SHADOW
+	CXXFLAGS		= -std=c++98 -Wshadow
+else 
+	CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
+endif
 NAME				= ex03
 
 RM					= rm -rf
 
-HEAD_FILE			= 	Fixed.hpp \
-						Point.hpp \
+HEAD_FILE			= 	ClapTrap.hpp \
+						ScavTrap.hpp \
+						FragTrap.hpp \
+						DiamondTrap.hpp \
 
 SRCS_FILE			=	main.cpp \
-						Fixed.cpp \
-						Point.cpp \
-						bsp.cpp \
+						ClapTrap.cpp \
+						ScavTrap.cpp \
+						FragTrap.cpp \
+						DiamondTrap.cpp \
 
 OBJ					= $(SRCS_FILE:%.cpp=%.o)
 
@@ -56,4 +64,8 @@ debug				:
 					@make DEBUG=1
 					@echo "[-] DEBUG PROCESS"
 
-.PHONY 				: all clean fclean re debug
+shadow				:
+					@make SHADOW=1
+					@echo "[-] SHADOW PROCESS"
+
+.PHONY 				: all clean fclean re debug shadow
