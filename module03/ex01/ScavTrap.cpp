@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:30:12 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/02 00:33:13 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/03 23:46:46 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,13 @@
 ScavTrap::ScavTrap() : ClapTrap() {
     std::cout << "ScavTrap default constructor is executed." << std::endl;
     // Bind value
-    this->_name = "";
     this->_hitPoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string paramName) : ClapTrap(paramName) {
+ScavTrap::ScavTrap(const std::string &paramName) : ClapTrap(paramName) {
     std::cout << "ScavTrap " << paramName << " is created" << std::endl;
-    this->_name = paramName;
     this->_hitPoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 20;
@@ -40,10 +38,10 @@ ScavTrap::~ScavTrap() {
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &scavTrap) {
     std::cout << "ScavTrap's assignment operator is executed." << std::endl;
-    this->_name = scavTrap.getName();
-    this->_hitPoints = scavTrap.getHitPoints();
-    this->_energyPoints = scavTrap.getEnergyPoints();
-    this->_attackDamage = scavTrap.getAttackDamage();
+    this->_name = scavTrap._name;
+    this->_hitPoints = scavTrap._hitPoints;
+    this->_energyPoints = scavTrap._energyPoints;
+    this->_attackDamage = scavTrap._attackDamage;
     return (*this);
 }
 

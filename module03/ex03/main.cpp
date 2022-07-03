@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:40:21 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/02 02:31:54 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/03 23:39:57 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,18 @@ void showStatus_4(DiamondTrap &obj) {
 }
 
 void test(void) {
+    std::cout << "\n|---------------- Scene 01 ----------------|" << std::endl;
+    {
+        DiamondTrap a("a");
+        a.whoAmI();
+    }
     std::cout << "\n|---------------- Scene 02 ----------------|" << std::endl;
     {
         DiamondTrap *dia = new DiamondTrap("dia");
+        dia->whoAmI();
+        std::cout << "----------------" << std::endl;
         ClapTrap *mcha = new ClapTrap("mcha");
         ClapTrap *scav = new ScavTrap("scav");
-
-        dia->whoAmI();
 
         showStatus_1(*mcha);
         showStatus_1(*scav);
@@ -73,6 +78,8 @@ void test(void) {
         delete scav;
     }
 }
+
+void a() { std::cout << "?" << std::endl; }
 
 int main(void) {
     test();

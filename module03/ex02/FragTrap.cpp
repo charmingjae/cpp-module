@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:31:22 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/02 01:39:39 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/03 23:44:38 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 FragTrap::FragTrap() : ClapTrap() {
     std::cout << "FragTrap default constructor is executed." << std::endl;
-    this->_name = "";
     this->_hitPoints = 100;
     this->_energyPoints = 100;
     this->_attackDamage = 30;
 }
 
-FragTrap::FragTrap(std::string paramName) : ClapTrap(paramName) {
-    this->_name = paramName;
+FragTrap::FragTrap(const std::string &paramName) : ClapTrap(paramName) {
     this->_hitPoints = 100;
     this->_energyPoints = 100;
     this->_attackDamage = 30;
@@ -39,10 +37,10 @@ FragTrap::~FragTrap() {
 
 FragTrap &FragTrap::operator=(const FragTrap &fragTrap) {
     std::cout << "FragTrap's assignment operator is executed." << std::endl;
-    this->_name = fragTrap.getName();
-    this->_hitPoints = fragTrap.getHitPoints();
-    this->_energyPoints = fragTrap.getEnergyPoints();
-    this->_attackDamage = fragTrap.getAttackDamage();
+    this->_name = fragTrap._name;
+    this->_hitPoints = fragTrap._hitPoints;
+    this->_energyPoints = fragTrap._energyPoints;
+    this->_attackDamage = fragTrap._attackDamage;
     return (*this);
 }
 

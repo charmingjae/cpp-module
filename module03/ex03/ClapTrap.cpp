@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:29:14 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/02 02:01:16 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/03 23:20:17 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,28 @@ ClapTrap::ClapTrap()
     std::cout << "Default constructor is executed" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string paramName)
+ClapTrap::ClapTrap(const std::string &paramName)
     : _name(paramName), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-    if (this->getName().empty() || paramName.empty()) {
-        std::cout << "ClapTrap's name cannot be empty. Exit" << std::endl;
-        exit(EXIT_FAILURE);
-    }
     std::cout << "ClapTrap " << this->getName() << " is created" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &clapTrap) {
-    if (clapTrap.getName().empty()) {
-        std::cout << "ClapTrap's name cannot be empty. Exit" << std::endl;
-        exit(EXIT_FAILURE);
-    }
     // Bind value
-    _name = clapTrap.getName();
-    _hitPoints = clapTrap.getHitPoints();
-    _energyPoints = clapTrap.getEnergyPoints();
-    _attackDamage = clapTrap.getAttackDamage();
-    std::cout << "ClapTrap " << this->getName() << " is created" << std::endl;
+    *this = clapTrap;
+    std::cout << "ClapTrap " << this->_name << " is created" << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
-    if (this->getName().empty()) {
-        std::cout << "ClapTrap unknown is destructed" << std::endl;
-    } else {
-        std::cout << "ClapTrap " << this->getName() << " is destructed"
-                  << std::endl;
-    }
+    std::cout << "ClapTrap " << this->getName() << " is destructed"
+              << std::endl;
 }
 
 // operator
 ClapTrap &ClapTrap::operator=(const ClapTrap &clapTrap) {
-    this->_name = clapTrap.getName();
-    this->_hitPoints = clapTrap.getHitPoints();
-    this->_energyPoints = clapTrap.getEnergyPoints();
-    this->_attackDamage = clapTrap.getAttackDamage();
+    _name = clapTrap._name;
+    _hitPoints = clapTrap._hitPoints;
+    _energyPoints = clapTrap._energyPoints;
+    _attackDamage = clapTrap._attackDamage;
     std::cout << "Assignment operator is executed" << std::endl;
     return (*this);
 }

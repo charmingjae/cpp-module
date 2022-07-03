@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:28:09 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/02 01:15:34 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/03 23:43:31 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class FragTrap : public ClapTrap {
   public:
     FragTrap();
-    FragTrap(std::string paramName);
+    FragTrap(const std::string &paramName);
     FragTrap(const FragTrap &fragTrap);
     ~FragTrap();
 

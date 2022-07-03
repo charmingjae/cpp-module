@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 16:14:00 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/01 19:39:33 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/03 23:44:19 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ScavTrap : public ClapTrap {
   public:
     ScavTrap();
-    ScavTrap(std::string paramName);
+    ScavTrap(const std::string &paramName);
     ScavTrap(const ScavTrap &scavTrap);
     ~ScavTrap();
 

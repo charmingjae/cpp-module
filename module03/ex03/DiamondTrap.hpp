@@ -6,24 +6,23 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 19:57:22 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/02 01:48:09 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/03 22:17:40 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 #define DIAMONDTRAP_HPP
 
-#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+class DiamondTrap : public ScavTrap, public FragTrap {
   private:
     std::string _name;
 
   public:
     DiamondTrap();
-    DiamondTrap(std::string paramName);
+    DiamondTrap(const std::string &paramName);
     DiamondTrap(const DiamondTrap &diamondTrap);
     ~DiamondTrap();
 

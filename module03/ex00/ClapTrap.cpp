@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:29:14 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/01 16:46:03 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/03 23:47:54 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap()
     std::cout << "Default constructor is executed" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string paramName)
+ClapTrap::ClapTrap(const std::string &paramName)
     : _name(paramName), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
     if (this->getName().empty() || paramName.empty()) {
         std::cout << "ClapTrap's name cannot be empty. Exit" << std::endl;
@@ -47,10 +47,10 @@ ClapTrap::~ClapTrap() {
 
 // operator
 ClapTrap &ClapTrap::operator=(const ClapTrap &clapTrap) {
-    this->_name = clapTrap.getName();
-    this->_hitPoints = clapTrap.getHitPoints();
-    this->_energyPoints = clapTrap.getEnergyPoints();
-    this->_attackDamage = clapTrap.getAttackDamage();
+    this->_name = clapTrap._name;
+    this->_hitPoints = clapTrap._hitPoints;
+    this->_energyPoints = clapTrap._energyPoints;
+    this->_attackDamage = clapTrap._attackDamage;
     std::cout << "Assignment operator is executed" << std::endl;
     return (*this);
 }

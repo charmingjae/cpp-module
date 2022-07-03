@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 14:22:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/02 01:33:16 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/03 21:46:26 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap {
   public:
     // Constructor, Destructor
     ClapTrap();
-    ClapTrap(std::string paramName);
+    ClapTrap(const std::string &paramName);
     ClapTrap(const ClapTrap &clapTrap);
     virtual ~ClapTrap();
 
