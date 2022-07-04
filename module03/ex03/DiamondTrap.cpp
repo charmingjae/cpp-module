@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 20:21:44 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/03 23:25:34 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/04 13:59:25 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,15 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
     std::cout << "DiamondTrap default constructor is executed." << std::endl;
     // Bind Value
     this->_name = "";
-    // this->_hitPoints = FragTrap::_hitPoints;
-    // this->_energyPoints = ScavTrap::_energyPoints;
-    // this->_attackDamage = FragTrap::_attackDamage;
-    this->_hitPoints = FragTrap().getHitPoints();
-    this->_energyPoints = ScavTrap().getEnergyPoints();
-    this->_attackDamage = FragTrap().getAttackDamage();
+    this->_hitPoints = 100;
+    this->_energyPoints = 50;
+    this->_attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap(const std::string &paramName)
     : ClapTrap(paramName + "_clap_name"), ScavTrap(paramName),
       FragTrap(paramName) {
     this->_name = paramName;
-    // this->_hitPoints = FragTrap().getHitPoints();
-    // this->_energyPoints = ScavTrap().getEnergyPoints();
-    // this->_attackDamage = FragTrap().getAttackDamage();
     this->_hitPoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 30;
