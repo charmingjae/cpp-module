@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 20:59:52 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/04 21:56:22 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/05 00:31:20 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class Dog : public Animal {
     Dog(const Dog &paramDog);
     ~Dog();
     Dog &operator=(const Dog &paramDog);
+
+    void makeSound(void) const;
 };
 
 #endif

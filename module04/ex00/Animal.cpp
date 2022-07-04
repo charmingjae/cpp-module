@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 21:14:36 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/04 21:57:12 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/05 00:31:33 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,9 @@ Animal &Animal::operator=(const Animal &paramAnimal) {
     std::cout << "Animal operator= is executed." << std::endl;
     return (*this);
 }
+
+void Animal::makeSound(void) const {
+    std::cout << "Animal make sound. (?)" << std::endl;
+}
+
+std::string Animal::getType(void) const { return this->_type; }

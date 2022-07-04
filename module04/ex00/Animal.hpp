@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 20:58:25 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/04 22:01:37 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/05 00:30:20 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ class Animal {
   public:
     Animal();
     Animal(const Animal &paramAnimal);
-    ~Animal();
+    virtual ~Animal();
     Animal &operator=(const Animal &paramAnimal);
+
+    virtual void makeSound(void) const;
+    std::string getType(void) const;
 };
 
 #endif
