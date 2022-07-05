@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 14:18:00 by mcha              #+#    #+#             */
-/*   Updated: 2022/06/27 20:58:20 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/05 18:45:59 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,28 @@ bool Fixed::operator!=(const Fixed &fixed) const {
 }
 
 Fixed Fixed::operator+(const Fixed &fixed) const {
-    return this->getRawBits() + fixed.getRawBits();
+    Fixed temp;
+    temp.setRawBits(this->getRawBits() + fixed.getRawBits());
+    return (temp);
 }
 
 Fixed Fixed::operator-(const Fixed &fixed) const {
-    return this->getRawBits() - fixed.getRawBits();
+    Fixed temp;
+    temp.setRawBits(this->getRawBits() - fixed.getRawBits());
+    return (temp);
 }
 
 Fixed Fixed::operator*(const Fixed &fixed) const {
-    return this->toFloat() * fixed.toFloat();
+    Fixed temp;
+    temp.setRawBits(this->getRawBits() * fixed.getRawBits() / (1 << _frac));
+    return (temp);
 }
 
 // Consider divide by zero
 Fixed Fixed::operator/(const Fixed &fixed) const {
-    return this->getRawBits() / fixed.getRawBits();
+    Fixed temp;
+    temp.setRawBits(this->getRawBits() / fixed.getRawBits() * (1 << _frac));
+    return (temp);
 }
 
 Fixed &Fixed::operator++() {
