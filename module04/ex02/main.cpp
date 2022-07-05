@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 20:58:15 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/05 16:08:55 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/06 00:31:31 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,17 @@ void test02(void) {
     delete[] animal;
 }
 
+void test03(void) {
+    Animal *test = new Dog();
+    std::cout << test->getType() << std::endl;
+    test->makeSound();
+
+    Dog *test1 = new Dog();
+    std::cout << test1->getType() << std::endl;
+    Dog test2(*test1);
+    std::cout << test2.getType() << std::endl;
+}
+
 int main(void) {
     std::cout << "\n====================== TEST01 ======================\n"
               << std::endl;
@@ -89,6 +100,9 @@ int main(void) {
     std::cout << "\n====================== TEST02 ======================\n"
               << std::endl;
     test02();
+    std::cout << "\n====================== TEST03 ======================\n"
+              << std::endl;
+    test03();
     // system("leaks ex02");
     return (1);
 }
