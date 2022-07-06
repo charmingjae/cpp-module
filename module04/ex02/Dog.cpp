@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 21:10:32 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/06 00:33:59 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/06 15:09:13 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Dog &Dog::operator=(const Dog &paramDog) {
     }
     this->_brain = new Brain();
     for (int i = 0; i < 100; i++) {
-        this->_brain->setIdeas(i, this->_brain->getIdeas(i));
+        this->_brain->setIdeas(i, paramDog.getBrain()->getIdeas(i));
     }
     std::cout << "Dog operator= is executed." << std::endl;
     return (*this);

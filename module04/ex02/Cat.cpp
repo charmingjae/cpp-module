@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 00:06:19 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/05 17:40:49 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/06 15:09:12 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Cat &Cat::operator=(const Cat &paramCat) {
     }
     this->_brain = new Brain();
     for (int i = 0; i < 100; i++) {
-        this->_brain->setIdeas(i, this->_brain->getIdeas(i));
+        this->_brain->setIdeas(i, paramCat.getBrain()->getIdeas(i));
     }
     std::cout << "Cat operator= is executed." << std::endl;
     return (*this);
