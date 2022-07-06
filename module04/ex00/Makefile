@@ -6,7 +6,7 @@
 #    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/04 20:57:45 by mcha              #+#    #+#              #
-#    Updated: 2022/07/04 21:02:11 by mcha             ###   ########.fr        #
+#    Updated: 2022/07/06 15:13:47 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,15 @@ RM					= rm -rf
 HEAD_FILE			= 	Animal.hpp \
 						Cat.hpp \
 						Dog.hpp \
+						WrongCat.hpp \
+						WrongAnimal.hpp \
 
 SRCS_FILE			=	main.cpp \
 						Animal.cpp \
 						Cat.cpp \
 						Dog.cpp \
+						WrongCat.cpp \
+						WrongAnimal.cpp \
 
 OBJ					= $(SRCS_FILE:%.cpp=%.o)
 
