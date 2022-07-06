@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 18:40:23 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/06 21:11:14 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/06 21:57:26 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,17 @@ void Form::beSigned(const Bureaucrat &src) {
     if (this->getSignGrade() >= src.getGrade()) {
         if (this->getSigned() == true) {
             src.signForm(*this, 1);
+            return;
         } else {
             src.signForm(*this, 0);
             this->_signed = true;
+            return;
         }
-    } else if (this->getSignGrade() > src.getGrade()) {
+    } else if (this->getSignGrade() < src.getGrade()) {
         src.signForm(*this, 2);
+        return;
     }
+    src.signForm(*this, 3);
 }
 
 // Exception

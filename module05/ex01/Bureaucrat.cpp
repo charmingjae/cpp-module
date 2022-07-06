@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:46:21 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/06 21:09:38 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/06 21:57:18 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 void Bureaucrat::signForm(const Form &src, unsigned int type) const {
-    std::cout << "inner" << std::endl;
     if (type == 0) {
         std::cout << this->getName() << " signed " << src.getName()
                   << std::endl;
