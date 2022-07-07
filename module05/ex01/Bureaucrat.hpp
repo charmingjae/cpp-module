@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:47:46 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/06 20:40:14 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/08 00:00:49 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Bureaucrat {
     void setIncreGrade(void);
     void setDecreGrade(void);
 
-    void signForm(const Form &src, unsigned int type) const;
+    void signForm(Form &src) const;
 };
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &src);

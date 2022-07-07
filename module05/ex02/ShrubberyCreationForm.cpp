@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:16:39 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/07 17:29:55 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/07 23:34:58 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs) {
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
     std::cout << "ShrubberyCreationForm destructor is executed." << std::endl;
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+    // 01. Check auth of executor and is form signed.
+
+    // 02. make file and writes ASCII trees inside it.
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {

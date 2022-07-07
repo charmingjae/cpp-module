@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:08:46 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/07 15:45:25 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/08 00:20:10 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void test00(void) {
     std::cout << "[INIT] " << *subject << std::endl;
 
     // Can't sign because grade gap
-    subject->beSigned(*mcha);
+    mcha->signForm(*subject);
     std::cout << *subject << std::endl;
 
     // Increase grade
@@ -31,11 +31,11 @@ void test00(void) {
     std::cout << "[INCREASE] " << *mcha << std::endl;
 
     // Can sign
-    subject->beSigned(*mcha);
+    mcha->signForm(*subject);
     std::cout << *subject << std::endl;
 
     // Can't sign because form already signed
-    subject->beSigned(*mcha);
+    mcha->signForm(*subject);
     std::cout << *subject << std::endl;
 
     delete mcha;
@@ -53,14 +53,14 @@ void test01(void) {
 
     // Decrease copy's grade
     copy.setDecreGrade();
-    std::cout << copy << std::endl;
+    std::cout << "[DECREASE] " << copy << std::endl;
 
     // Create form
     Form *form = new Form("math", 130, 140);
     std::cout << "[INIT - Form] " << *form << std::endl;
 
     // copy can sign at form
-    form->beSigned(copy);
+    copy.signForm(*form);
     std::cout << *form << std::endl;
 
     // copy form to fcpy
@@ -68,7 +68,7 @@ void test01(void) {
     std::cout << "[COPY - Form] " << fcpy << std::endl;
 
     // copy can't sign at fcpy because fcpy is already signed
-    fcpy.beSigned(copy);
+    copy.signForm(fcpy);
     std::cout << fcpy << std::endl;
 
     delete mcha;
@@ -80,13 +80,13 @@ void test02(void) {
     Bureaucrat *mcha = new Bureaucrat("mcha", 10);
     std::cout << "[INIT - Bureaucrat] " << *mcha << std::endl;
 
-    Form *form = new Form("exam", 10, 150);
+    Form *form = new Form("exam", 11, 150);
     std::cout << "[INIT - Form] " << *form << std::endl;
 
     Form cpy(*form);
     std::cout << "[COPY - Form] " << cpy << std::endl;
 
-    cpy.beSigned(*mcha);
+    mcha->signForm(cpy);
     std::cout << "[COPY - Form status] " << cpy << std::endl;
     std::cout << "[ORIG - Form status] " << *form << std::endl;
 
@@ -95,7 +95,7 @@ void test02(void) {
     Form cpy2 = test;
     std::cout << "[ASSG - Form] " << cpy2 << std::endl;
 
-    test.beSigned(*mcha);
+    mcha->signForm(test);
     std::cout << "[ORIG - Form] " << test << std::endl;
     std::cout << "[ASSG - Form] " << cpy2 << std::endl;
 

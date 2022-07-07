@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 18:40:23 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/07 15:34:15 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/08 00:08:24 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int Form::getSignGrade(void) const { return this->_signGrade; }
 
 int Form::getExecuteGrade(void) const { return this->_executeGrade; }
 
-void Form::beSigned(const Bureaucrat &src) {
+bool Form::beSigned(const Bureaucrat &src) {
     // check this range
     if (this->_signGrade > 150 || this->_executeGrade > 150)
         throw Form::GradeTooLowException();
@@ -69,18 +69,18 @@ void Form::beSigned(const Bureaucrat &src) {
     // Compare grade and do sign
     if (this->getSignGrade() >= src.getGrade()) {
         if (this->getSigned() == true) {
-            src.signForm(*this, 1);
-            return;
+            throw Form::FormAlreadySignedException();
+            return false;
         } else {
-            src.signForm(*this, 0);
             this->_signed = true;
-            return;
+            return true;
         }
     } else if (this->getSignGrade() < src.getGrade()) {
-        src.signForm(*this, 2);
-        return;
+        throw Form::AuthGapIsTooBigException();
+        return false;
     }
-    src.signForm(*this, 3);
+    throw Form::UnknownException();
+    return false;
 }
 
 // Exception
@@ -90,6 +90,18 @@ const char *Form::GradeTooHighException::what() const throw() {
 
 const char *Form::GradeTooLowException::what() const throw() {
     return "[Exception - Form] Grade is too low.";
+}
+
+const char *Form::FormAlreadySignedException::what() const throw() {
+    return "Form already signed.";
+}
+
+const char *Form::AuthGapIsTooBigException::what() const throw() {
+    return "didn't have enough grade";
+}
+
+const char *Form::UnknownException::what() const throw() {
+    return "Unknown reason.";
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &src) {

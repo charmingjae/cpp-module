@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 15:46:21 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/07 15:37:12 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/08 00:05:04 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,14 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
     return "[Exception - Bureaucrat] Grade is too low.";
 }
 
-void Bureaucrat::signForm(const Form &src, unsigned int type) const {
-    if (type == 0) {
+void Bureaucrat::signForm(Form &src) const {
+    try {
+        src.beSigned(*this);
         std::cout << this->getName() << " signed " << src.getName()
                   << std::endl;
-    } else if (type == 1) {
+    } catch (std::exception &e) {
         std::cout << this->getName() << " couldn't sign " << src.getName()
-                  << " because form already signed" << std::endl;
-    } else if (type == 2) {
-        std::cout << this->getName() << " couldn't sign " << src.getName()
-                  << " because didn't have enough auth grade" << std::endl;
-    } else {
-        std::cout << this->getName() << " couldn't sign " << src.getName()
-                  << " because unknown reason" << std::endl;
+                  << " because " << e.what() << "." << std::endl;
     }
 }
 
