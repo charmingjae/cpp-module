@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 18:40:23 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/07 15:34:15 by mcha             ###   ########.fr       */
+/*   Created: 2022/07/07 16:44:48 by mcha              #+#    #+#             */
+/*   Updated: 2022/07/07 16:44:49 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ Form::Form() : _name(""), _signed(false), _signGrade(150), _executeGrade(150) {
         throw Form::GradeTooLowException();
     else if (this->_signGrade < 1 || this->_executeGrade < 1)
         throw Form::GradeTooHighException();
+    std::cout << "Form default constructor is executed." << std::endl;
 }
 
 Form::Form(const Form &src)
     : _name(src._name), _signGrade(src._signGrade),
       _executeGrade(src._executeGrade) {
     *this = src;
+    std::cout << "Form copy constructor is executed." << std::endl;
 }
 
 Form::Form(const std::string &paramName, const int paramSignGrade,
@@ -34,6 +36,7 @@ Form::Form(const std::string &paramName, const int paramSignGrade,
         throw Form::GradeTooLowException();
     else if (this->_signGrade < 1 || this->_executeGrade < 1)
         throw Form::GradeTooHighException();
+    std::cout << "Form constructor with parameter is executed." << std::endl;
 }
 
 Form &Form::operator=(const Form &rhs) {
@@ -42,10 +45,11 @@ Form &Form::operator=(const Form &rhs) {
     else if (rhs.getSignGrade() < 1 || rhs.getExecuteGrade() < 1)
         throw Form::GradeTooHighException();
     this->_signed = rhs.getSigned();
+    std::cout << "Form operator= is executed." << std::endl;
     return (*this);
 }
 
-Form::~Form() {}
+Form::~Form() { std::cout << "Form destructor is executed." << std::endl; }
 
 std::string Form::getName(void) const { return this->_name; }
 
