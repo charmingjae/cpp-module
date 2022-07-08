@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:16:39 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/07 23:34:58 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/08 14:22:40 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ ShrubberyCreationForm::ShrubberyCreationForm()
               << std::endl;
 }
 
+// Should I copy 'signed' member attribute?
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src)
     : Form("ShrubberyCreationForm", 145, 137), _target(src._target) {
     *this = src;
@@ -45,16 +46,28 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
     // 01. Check auth of executor and is form signed.
-
+    if (this->getExecuteGrade() < executor.getGrade()) {
+        throw Form::AuthGapIsTooBigException();
+    } else if (!this->getSigned()) {
+        throw Form::FormNotSignedException();
+    }
     // 02. make file and writes ASCII trees inside it.
-}
-
-void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
-    std::cout << "execute test :)" << std::endl;
+    std::ofstream file(this->getTarget() + "_shrubbery");
+    if (file.is_open()) {
+        file << ASCII_TREE;
+    } else {
+        throw ShrubberyCreationForm::FileException();
+    }
 }
 
 std::string ShrubberyCreationForm::getTarget(void) const {
     return this->_target;
+}
+
+// Exception
+
+const char *ShrubberyCreationForm::FileException::what() const throw() {
+    return "file not opened";
 }
 
 std::ostream &operator<<(std::ostream &os, const ShrubberyCreationForm &src) {

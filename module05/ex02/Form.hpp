@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 18:17:43 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/07 17:44:12 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/08 13:44:15 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,26 @@ class Form {
         virtual const char *what() const throw();
     };
 
+    class FormAlreadySignedException : public std::exception {
+      public:
+        virtual const char *what() const throw();
+    };
+
+    class FormNotSignedException : public std::exception {
+      public:
+        virtual const char *what() const throw();
+    };
+
+    class AuthGapIsTooBigException : public std::exception {
+      public:
+        virtual const char *what() const throw();
+    };
+
+    class UnknownException : public std::exception {
+      public:
+        virtual const char *what() const throw();
+    };
+
   public:
     Form();
     Form(const Form &src);
@@ -49,7 +69,7 @@ class Form {
     bool getSigned(void) const;
     int getSignGrade(void) const;
     int getExecuteGrade(void) const;
-    void beSigned(const Bureaucrat &src);
+    bool beSigned(const Bureaucrat &src);
 
     virtual void execute(Bureaucrat const &executor) const = 0;
 };
