@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:26:46 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/09 23:59:33 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/10 00:04:55 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,18 +76,16 @@ void Convert::printFloat(double param) const {
 
 // double print function
 void Convert::printDouble(double param) const {
-    float conv = static_cast<double>(param);
-
-    if (isnan(param) || isinf(conv)) {
-        if (conv >= 0.0f)
-            std::cout << "double: +" << conv << std::endl;
+    if (isnan(param) || isinf(param)) {
+        if (param >= 0.0)
+            std::cout << "double: +" << param << std::endl;
         else
-            std::cout << "double: " << conv << std::endl;
+            std::cout << "double: " << param << std::endl;
     } else {
-        if (conv == static_cast<int>(conv))
-            std::cout << "double: " << conv << ".0" << std::endl;
+        if (param == static_cast<int>(param))
+            std::cout << "double: " << param << ".0" << std::endl;
         else
-            std::cout << "double: " << conv << std::endl;
+            std::cout << "double: " << param << std::endl;
     }
 }
 
