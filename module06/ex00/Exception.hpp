@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 22:28:13 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/08 22:30:24 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/09 00:14:19 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define EXCEPTION_HPP
 
 #include <exception>
+#include <iostream>
 
 class Exception {
   public:

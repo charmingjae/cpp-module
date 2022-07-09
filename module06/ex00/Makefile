@@ -6,7 +6,7 @@
 #    By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/05 16:18:02 by mcha              #+#    #+#              #
-#    Updated: 2022/07/08 22:23:36 by mcha             ###   ########.fr        #
+#    Updated: 2022/07/09 00:20:51 by mcha             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,12 @@ NAME				= convert
 
 RM					= rm -rf
 
-HEAD_FILE			=	
+HEAD_FILE			=	Exception.hpp \
+						Convert.hpp \
 
 SRCS_FILE			=	main.cpp \
+						Exception.cpp \
+						Convert.cpp \
 
 OBJ					= $(SRCS_FILE:%.cpp=%.o)
 
