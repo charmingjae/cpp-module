@@ -6,14 +6,24 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:26:46 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/10 00:04:55 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/14 14:04:16 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Convert.hpp"
 
+Convert::Convert() : _value(0.0), _input(NULL) {}
+
 Convert::Convert(const char *paramValue)
     : _value(strtod(paramValue, &this->_ptr)), _input(paramValue) {}
+
+Convert::Convert(const Convert &src)
+    : _value(src._value), _input(src._input), _ptr(src._ptr) {}
+
+Convert &Convert::operator=(const Convert &src) {
+    this->_ptr = src._ptr;
+    return (*this);
+}
 
 Convert::~Convert() {}
 

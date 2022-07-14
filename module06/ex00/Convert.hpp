@@ -6,7 +6,7 @@
 /*   By: mcha <mcha@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 00:20:57 by mcha              #+#    #+#             */
-/*   Updated: 2022/07/09 21:31:12 by mcha             ###   ########.fr       */
+/*   Updated: 2022/07/14 13:45:43 by mcha             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <float.h>
 #include <limits>
 #include <math.h>
-#include <sstream>
 #include <stdlib.h>
 #include <string>
 
@@ -28,13 +27,14 @@ class Convert {
     const char *_input;
     char *_ptr;
 
+  public:
     Convert();
+    Convert(const char *paramValue);
     Convert(const Convert &src);
+    ~Convert();
+
     Convert &operator=(const Convert &src);
 
-  public:
-    Convert(const char *paramValue);
-    ~Convert();
     void process(void) const;
     void printChar(double param) const;
     void printInt(double param) const;
